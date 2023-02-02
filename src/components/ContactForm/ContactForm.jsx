@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid'
 import css from './ContactForm.module.css';
 
-export const ContactForm = (props) => {
+export const ContactForm = ({onFormSubmit}) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -28,7 +28,7 @@ export const ContactForm = (props) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    props.onFormSubmit({id: nanoid(), name, number,});
+    onFormSubmit({id: nanoid(), name, number,});
     reset();
   };
 
